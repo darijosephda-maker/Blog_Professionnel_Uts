@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -72,7 +73,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'blog_da_db',
@@ -81,7 +82,16 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
+}"""
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # Si DATABASE_URL existe (sur Render), on l'utilise.
+        # Sinon (sur ton PC), on utilise ta configuration locale PostgreSQL.
+        default=os.environ.get('DATABASE_URL', 'postgres://blog_user:JosephDA@localhost:5432/blog_da_db')
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
