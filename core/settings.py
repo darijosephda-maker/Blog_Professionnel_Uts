@@ -128,28 +128,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# --- Configuration des fichiers Statiques (CSS, JS, Images du thème) ---
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
+# --- Configuration des fichiers Médias (Images téléchargées) ---
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# core/settings.py
-
+# --- Configuration Email (SMTP Gmail) ---
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'darijosephda@gmail.com'  # Ton adresse Gmail
-EMAIL_HOST_PASSWORD = 'qihsqdaxdozrxkon'  # Mot de passe spécial (voir note plus bas)
-DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'
-
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'darijosephda@gmail.com'
+EMAIL_HOST_PASSWORD = 'qihsqdaxdozrxkon'
+DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Dossier pour la production
+# --- Stockage Whitenoise pour Render ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
