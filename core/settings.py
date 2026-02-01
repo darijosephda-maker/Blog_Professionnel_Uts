@@ -25,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=4ys_0##=%3&s4++t=^x)pm*oz@+zv1d9+!=4j1g1($%u4x)i4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-# Application definition
+ALLOWED_HOSTS = ['blog-professionnel-uts.onrender.com', '127.0.0.1', 'localhost', '*']# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
