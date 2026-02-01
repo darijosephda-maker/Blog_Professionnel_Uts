@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DARI JOSEPH DA{% endblock %}</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header class="py-3 border-bottom custom-hero" style="background-color: #002347;">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        
+        <div class="d-flex align-items-center">
+            <img src="{% static 'img/DARI.jpg' %}" 
+                 alt="Profil" 
+                 style="width: 55px !important; height: 55px !important; object-fit: cover; border-radius: 50%; border: 2px solid white; flex-shrink: 0; margin-right: 12px;">
+            
+            <div class="text-start">
+                <h1 class="pro-name m-0 text-white fw-bold" style="font-size: 1.3rem; white-space: nowrap;">
+                    {{ profil.nom|default:"DARI JOSEPH DA" }}
+                </h1>
+                <p id="dynamic-greeting" class="small text-white-50 mb-0" style="font-size: 0.8rem;">Chargement...</p>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center mt-2 mt-md-0">
+            <div class="pro-time-box" style="min-width: 150px; background: rgba(255,255,255,0.1); border-radius: 5px; border: 1px solid rgba(255,255,255,0.1);">
+                <div class="time-row border-bottom border-secondary px-2 d-flex justify-content-between align-items-center">
+                    <span class="label fw-bold text-white-50" style="font-size: 0.65rem;">DATE :</span>
+                    <span id="date-display" class="text-info ms-2" style="font-size: 0.7rem; font-family: monospace;"></span>
+                </div>
+                <div class="time-row px-2 d-flex justify-content-between align-items-center">
+                    <span class="label fw-bold text-white-50" style="font-size: 0.65rem;">HEURE :</span>
+                    <span id="time-display" class="text-info ms-2" style="font-size: 0.7rem; font-family: monospace;"></span>
+                </div>
+            </div>
+            
+            <button id="theme-toggle" class="btn btn-outline-light border-0 ms-2">
+                <i class="bi bi-moon-stars-fill"></i>
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<nav class="pro-nav sticky-top shadow-sm" style="background-color: #002347 !important; width: 100%;">
+    <div style="width: 100%; overflow: hidden;">
+        <ul style="display: flex !important; list-style: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; justify-content: space-around !important; align-items: center !important; background-color: #002347 !important; flex-wrap: nowrap !important;">
+            
+            <li style="flex: 1 1 auto; text-align: center; min-width: 0;">
+                <a href="{% url 'home' %}" style="display: block; padding: 15px 2px; color: white !important; text-decoration: none; font-size: clamp(10px, 3vw, 16px); font-weight: 600; white-space: nowrap; background-color: {% if request.resolver_match.url_name == 'home' %}rgba(255,255,255,0.15){% else %}transparent{% endif %} !important;">Accueil</a>
+            </li>
+            
+            <li style="flex: 1 1 auto; text-align: center; min-width: 0;">
+                <a href="{% url 'about' %}" style="display: block; padding: 15px 2px; color: white !important; text-decoration: none; font-size: clamp(10px, 3vw, 16px); font-weight: 600; white-space: nowrap; background-color: {% if request.resolver_match.url_name == 'about' %}rgba(255,255,255,0.15){% else %}transparent{% endif %} !important;">À Propos</a>
+            </li>
+            
+            <li style="flex: 1 1 auto; text-align: center; min-width: 0;">
+                <a href="{% url 'services' %}" style="display: block; padding: 15px 2px; color: white !important; text-decoration: none; font-size: clamp(10px, 3vw, 16px); font-weight: 600; white-space: nowrap; background-color: {% if request.resolver_match.url_name == 'services' %}rgba(255,255,255,0.15){% else %}transparent{% endif %} !important;">Services</a>
+            </li>
+            
+            <li style="flex: 1 1 auto; text-align: center; min-width: 0;">
+                <a href="{% url 'contact' %}" style="display: block; padding: 15px 2px; color: white !important; text-decoration: none; font-size: clamp(10px, 3vw, 16px); font-weight: 600; white-space: nowrap; background-color: {% if request.resolver_match.url_name == 'contact' %}rgba(255,255,255,0.15){% else %}transparent{% endif %} !important;">Contact</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+
+    <main class="py-5 bg-light min-vh-100">
+        <div class="container"> 
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4 border-top border-primary border-4">
+    <div class="container text-md-start">
+        <div class="row g-4">
+            
+            <div class="col-md-4 col-lg-4">
+                <h5 class="fw-bold text-uppercase mb-4 text-primary">Joseph DARI DA</h5>
+                <p class="small text-secondary" style="line-height: 1.8;">
+                    Étudiant à l'Université Thomas Sankara (UTS). <br>
+                    Expert en solutions numériques, alliant développement technique et esthétique design pour propulser vos projets.
+                </p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#" class="text-white opacity-75 hover-opacity-100"><i class="bi bi-linkedin fs-5"></i></a>
+                    <a href="#" class="text-white opacity-75 hover-opacity-100"><i class="bi bi-github fs-5"></i></a>
+                    <a href="#" class="text-white opacity-75 hover-opacity-100"><i class="bi bi-twitter-x fs-5"></i></a>
+                    <a href="https://www.facebook.com/darijoseph.da.3" class="text-white opacity-75 hover-opacity-100"><i class="bi bi-facebook fs-5"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-lg-2">
+                <h6 class="fw-bold text-uppercase mb-4">Navigation</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="{% url 'home' %}" class="text-secondary text-decoration-none small hover-link">Accueil</a></li>
+                    <li class="mb-2"><a href="{% url 'services' %}" class="text-secondary text-decoration-none small hover-link">Services</a></li>
+                    <li class="mb-2"><a href="{% url 'about' %}" class="text-secondary text-decoration-none small hover-link">À propos</a></li>
+                    <li class="mb-2"><a href="{% url 'contact' %}" class="text-secondary text-decoration-none small hover-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <h6 class="fw-bold text-uppercase mb-4">Expertises</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2 text-secondary small"><i class="bi bi-chevron-right text-primary me-2"></i>Développement Web</li>
+                    <li class="mb-2 text-secondary small"><i class="bi bi-chevron-right text-primary me-2"></i>Infographie & Design</li>
+                    <li class="mb-2 text-secondary small"><i class="bi bi-chevron-right text-primary me-2"></i>Cybersécurité</li>
+                    <li class="mb-2 text-secondary small"><i class="bi bi-chevron-right text-primary me-2"></i>Maintenance IT</li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-3">
+                <h6 class="fw-bold text-uppercase mb-4">Me Joindre</h6>
+                <p class="text-secondary small mb-2"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Ouagadougou, Burkina Faso</p>
+                <p class="text-secondary small mb-2"><i class="bi bi-envelope-fill text-primary me-2"></i> darijosephda@gmail.com</p>
+                <p class="text-secondary small"><i class="bi bi-telephone-fill text-primary me-2"></i> +226 67 57 84 23</p>
+            </div>
+
+        </div>
+
+        <hr class="my-4 opacity-10">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0 small text-secondary">
+                    © 2026 <strong>DARI JOSEPH DA</strong>. Tous droits réservés.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                <p class="mb-0 small text-secondary">
+                    Conçu avec <i class="bi bi-heart-fill text-danger mx-1"></i> et <strong>Django</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

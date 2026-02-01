@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | {{ profil.nom|default:"Expert IT" }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Travaillons Ensemble</h2>
+                <div class="mx-auto bg-primary mb-3" style="width: 60px; height: 4px; border-radius: 2px;"></div>
+                <p class="text-muted lead">Une idée de projet ou une simple question ? Je vous réponds sous 24h.</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-md-7">
+                    <div class="card shadow-lg border-0 rounded-4">
+                        <div class="card-body p-4 p-lg-5">
+
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                <i class="bi {% if message.tags == 'success' %}bi-check-circle-fill{% else %}bi-exclamation-triangle-fill{% endif %} me-2"></i>
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+                            <form method="POST">
+                                {% csrf_token %}
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label fw-semibold small text-uppercase">Nom Complet</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-person text-primary"></i></span>
+                                            <input type="text" name="nom" class="form-control border-start-0 ps-0" placeholder="Joseph DA" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label fw-semibold small text-uppercase">Adresse Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-envelope-at text-primary"></i></span>
+                                            <input type="email" name="email" class="form-control border-start-0 ps-0" placeholder="contact@exemple.com" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold small text-uppercase">Sujet</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-chat-left-dots text-primary"></i></span>
+                                        <select name="sujet" class="form-select border-start-0 ps-0" required>
+                                            <option value="" selected disabled>De quoi s'agit-il ?</option>
+                                            <option value="Projet Web">Nouveau projet Web</option>
+                                            <option value="Consultance">Consultance / Audit</option>
+                                            <option value="Collaboration">Demande de collaboration</option>
+                                            <option value="Autre">Autre demande</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold small text-uppercase">Votre Message</label>
+                                    <textarea name="message" class="form-control" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 shadow py-3 transition-transform">
+                                    <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-4">
+                            <h4 class="fw-bold mb-4">Coordonnées</h4>
+                            
+                            <div class="d-flex align-items-center mb-4 p-3 bg-white rounded-3 shadow-sm border-start border-primary border-4">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="bi bi-geo-alt text-primary fs-4"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block fw-bold">Localisation</span>
+                                    <span class="text-muted">Ouagadougou, Burkina Faso</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-4 p-3 bg-white rounded-3 shadow-sm border-start border-success border-4">
+                                <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+                                    <i class="bi bi-telephone text-success fs-4"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block fw-bold">Téléphone</span>
+                                    <span class="text-muted">+226 67 57 84 23 / 73 72 16 26</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-dark rounded-4 text-white">
+                            <h5 class="mb-3 fw-bold">Suivez mon actualité</h5>
+                            <p class="small opacity-75">Retrouvez mes derniers articles et projets sur les réseaux sociaux.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-github"></i></a>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

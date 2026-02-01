@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services | {{ profil.nom|default:"Joseph DA" }}{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary">Mes Solutions Expertise</h2>
+            <div class="mx-auto bg-primary" style="width: 80px; height: 4px; border-radius: 2px;"></div>
+            <p class="text-muted lead mt-3">Un accompagnement sur mesure pour transformer vos idées en réalité numérique.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-primary bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-code-slash text-primary fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Développement Fullstack</h4>
+                    <p class="text-muted small">Conception d'applications robustes avec Django, React et des architectures performantes.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>API REST & Backend Pro</li>
+                        <li><i class="bi bi-check2-circle text-primary me-2"></i>Optimisation Database</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-info bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-palette-fill text-info fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Infographie</h4>
+                    <p class="text-muted small">Création de supports de communication percutants pour votre identité visuelle.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-info me-2"></i>Logos & Chartes graphiques</li>
+                        <li><i class="bi bi-check2-circle text-info me-2"></i>Affiches & Flyers Pro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-success bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-vector-pen text-success fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">UI/UX Design</h4>
+                    <p class="text-muted small">Conception d'interfaces intuitives pour une expérience utilisateur exceptionnelle.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-success me-2"></i>Maquettage Figma/Adobe</li>
+                        <li><i class="bi bi-check2-circle text-success me-2"></i>Prototypes interactifs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-danger bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-shield-lock-fill text-danger fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Audit & Sécurité</h4>
+                    <p class="text-muted small">Analyse de vulnérabilités et protection de vos infrastructures critiques.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Tests d'intrusion</li>
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Mise en conformité</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-warning bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-mortarboard-fill text-warning fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Formation</h4>
+                    <p class="text-muted small">Transfert de compétences techniques et théoriques pour vos équipes ou étudiants.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-warning me-2"></i>Ateliers Django/Design</li>
+                        <li><i class="bi bi-check2-circle text-warning me-2"></i>Coaching personnalisé</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card-pro h-100 shadow-sm border-0 bg-white p-4 rounded-4 text-center">
+                    <div class="icon-circle shadow-sm bg-dark bg-opacity-10 mx-auto mb-4">
+                        <i class="bi bi-tools text-dark fs-2"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Maintenance & Support</h4>
+                    <p class="text-muted small">Suivi technique continu pour garantir la disponibilité et l'évolution de vos outils.</p>
+                    <ul class="list-unstyled small text-start d-inline-block">
+                        <li><i class="bi bi-check2-circle text-dark me-2"></i>Mises à jour de sécurité</li>
+                        <li><i class="bi bi-check2-circle text-dark me-2"></i>Correction & Optimisation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 p-5 bg-primary rounded-4 text-white text-center shadow">
+            <h3 class="fw-bold">Prêt à démarrer un projet ?</h3>
+            <p class="mb-4 opacity-75">Étudiant à l'UTS ou entreprise, discutons de vos besoins pour trouver la solution optimale.</p>
+            <a href="{% url 'contact' %}" class="btn btn-light btn-lg px-5 rounded-pill fw-bold shadow-sm transition-all">
+                Demander un devis gratuit
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

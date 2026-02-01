@@ -1,0 +1,455 @@
+:root {
+    --primary-color: #0a2351; /* Bleu nuit pro */
+    --accent-color: #007bff;
+    --bg-light: #ffffff;
+    --text-dark: #1a1a1a;
+    --border-color: #e9ecef;
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* --- Header & Branding --- */
+.pro-name { 
+    font-weight: 800; 
+    color: var(--primary-color); 
+    margin-bottom: 0; 
+    transition: color var(--transition-speed);
+}
+
+/* Widget Temps (Style Business) */
+.pro-time-box {
+    background: #212529;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    overflow: hidden;
+    min-width: 260px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.time-row { 
+    display: flex; 
+    align-items: center; 
+}
+
+.time-row .label { 
+    background: #343a40; 
+    padding: 8px 12px; 
+    width: 85px; 
+    font-weight: bold; 
+    font-size: 0.7rem;
+    color: #adb5bd;
+}
+
+.time-row .value { 
+    padding: 8px 15px; 
+    flex-grow: 1; 
+    text-align: left; 
+    color: #00d4ff; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold; 
+}
+
+
+
+/* --- Navigation Globale --- */
+/* --- CONFIGURATION PC --- */
+@media (min-width: 992px) {
+    .nav-item-link, [style*="font-size: 13.5px"] {
+        font-size: 16px !important; /* On remet en grand sur ordinateur */
+        padding: 15px 20px !important;
+    }
+}
+.nav-item-link {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 16px; /* Taille normale sur ordinateur */
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* --- CONFIGURATION MOBILE (C'est ici qu'on règle ton problème) --- */
+@media (max-width: 480px) {
+    .nav-menu-list {
+        display: flex !important;
+        justify-content: space-around !important; /* Répartit les 4 onglets */
+    }
+
+    .nav-item-link {
+        /* ON DIMINUE TOUT ICI */
+        padding: 10px 4px !important; /* Presque plus d'espace sur les côtés */
+        font-size: 11px !important;  /* Texte très petit pour que tout rentre */
+        letter-spacing: -0.5px;      /* On resserre les lettres */
+    }
+
+    /* On s'assure que rien ne dépasse */
+    .nav-menu-list li {
+        flex: 1; 
+        text-align: center;
+    }
+}
+
+
+/* --- Cards Articles --- */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* --- Mode Sombre (Dark Mode) --- */
+body.dark-mode { 
+    background: #0f172a !important; 
+    color: #f1f5f9; 
+}
+
+body.dark-mode header, 
+body.dark-mode main {
+    background-color: #0f172a !important;
+}
+
+body.dark-mode .pro-name { 
+    color: #38bdf8; 
+}
+
+body.dark-mode .card {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .border-bottom {
+    border-color: #334155 !important;
+}
+
+/* Style du bouton de changement de thème */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+#theme-toggle:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+body.dark-mode #theme-toggle {
+    color: #fbbf24;
+    background: rgba(255,255,255,0.1);
+}
+
+
+    /* Design spécifique aux services */
+    .service-card-pro {
+        background: #ffffff;
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .service-card-pro:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(10, 35, 81, 0.1) !important;
+        border-color: var(--accent-color);
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+        background: #f0f7ff;
+        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        border-radius: 18px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .bg-danger-soft { background: #fff5f5; }
+    .bg-warning-soft { background: #fffdf0; }
+
+    /* Adaptation Mode Sombre */
+    body.dark-mode .service-card-pro {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    body.dark-mode .service-card-pro h4 { color: #fff; }
+
+
+    /* Petit effet d'élévation sur le bouton */
+    .transition-transform:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(10, 35, 81, 0.2) !important;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: var(--accent-color);
+        box-shadow: none;
+    }
+
+
+    .ls-wide { letter-spacing: 0.15em; }
+    
+    .profile-frame {
+        transition: transform 0.3s ease;
+    }
+    
+    .profile-frame:hover {
+        transform: scale(1.02);
+    }
+
+    .skill-card {
+        transition: all 0.3s ease;
+        border-bottom: 4px solid transparent !important;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 4px solid var(--primary-color) !important;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    body.dark-mode .skill-card {
+        background: #1e293b !important;
+        color: #fff;
+    }
+
+    body.dark-mode .bg-white {
+        background-color: #0f172a !important;
+    }
+
+    .exp-badge {
+        min-width: 120px;
+        text-align: center;
+    }
+
+    /* Gradient pour les articles sans image */
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #0a2351 0%, #007bff 100%);
+    }
+
+    /* Effet Zoom sur l'image */
+    .custom-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fff;
+    }
+
+    .card-zoom {
+        transition: transform 0.5s ease;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    .custom-card:hover .card-zoom {
+        transform: scale(1.1);
+    }
+
+    .title-hover:hover {
+        color: var(--accent-color) !important;
+    }
+
+    /* Support Mode Sombre */
+    body.dark-mode .custom-card {
+        background: #1e293b;
+    }
+    body.dark-mode .custom-card .card-title a {
+        color: #f1f5f9 !important;
+    }
+    body.dark-mode .bg-light {
+        background-color: #334155 !important;
+        color: #fff !important;
+    }
+
+    
+
+
+    
+    /* La barre de navigation elle-même */
+.pro-nav {
+    height: 60px; /* On fixe une hauteur pour que ce soit imposant */
+    display: flex;
+    align-items: center;
+}
+
+/* La liste (ul) */
+.nav-menu-list {
+    display: flex;
+    list-style: none;
+    height: 60px; /* Doit être identique à la nav */
+    margin: 0;
+    padding: 0;
+}
+
+/* Les liens (a) */
+.nav-item-link {
+    display: flex;
+    align-items: center; /* Centre le texte verticalement */
+    height: 100%;       /* Prend toute la hauteur de la barre */
+    padding: 0 30px;    /* Largeur de l'onglet */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* EFFET AU SURVOL */
+.nav-item-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* --- L'ÉTAT ACTIF (COMME SUR TON IMAGE) --- */
+.nav-item-link.active {
+    background-color: #f8f9fa !important; /* Fond blanc/clair */
+    color: #0a2351 !important;           /* Texte bleu foncé */
+    border-bottom: 4px solid #007bff;     /* Optionnel: petite ligne de rappel en bas */
+}
+
+/* Supprimer les marges Bootstrap qui pourraient gêner */
+.nav-menu-list li {
+    height: 100%;
+}
+
+
+
+    .service-card-pro {
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(0,0,0,0.05) !important;
+    }
+    .service-card-pro:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.1) !important;
+        border-color: var(--bs-primary) !important;
+    }
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .transition-all:hover {
+        transform: scale(1.05);
+    }
+
+
+    /* Couleurs dégradées pour les icônes de parcours */
+    .bg-grad-blue { background: linear-gradient(45deg, #007bff, #00d4ff); }
+    .bg-grad-purple { background: linear-gradient(45deg, #6f42c1, #a951ed); }
+    .bg-grad-orange { background: linear-gradient(45deg, #fd7e14, #ffb334); }
+
+    .skill-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-bottom: 3px solid transparent !important;
+    }
+    .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        border-bottom: 3px solid #007bff !important;
+    }
+    .profile-frame img {
+        transition: transform 0.5s ease;
+    }
+    .profile-frame:hover img {
+        transform: scale(1.02);
+    }
+
+
+    
+
+/* Accueil*/
+
+    .transition-up {
+        transition: all 0.3s ease;
+    }
+    .transition-up:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.12) !important;
+    }
+    .card-zoom {
+        transition: transform 0.5s ease;
+    }
+    .custom-card:hover .card-zoom {
+        transform: scale(1.1);
+    }
+    .title-hover:hover {
+        color: #0d6efd !important;
+    }
+    .backdrop-blur {
+        backdrop-filter: blur(5px);
+    }
+
+
+
+    /* Petits effets pro sans fichier CSS externe */
+    .hover-opacity-100:hover { opacity: 1 !important; transform: scale(1.1); transition: 0.3s; }
+    .hover-link:hover { color: #0d6efd !important; padding-left: 5px; transition: 0.3s; }
+    footer hr { border-color: rgba(255,255,255,0.1); }
+
+/* Contrôle de la taille de la photo à côté du nom */
+.profile-thumb {
+    width: 20px;          /* Largeur fixe */
+    height: 20px;         /* Hauteur fixe */
+    object-fit: cover;    /* Empêche de déformer l'image */
+    border-radius: 50%;   /* Rend l'image ronde */
+    border: 2px solid white; /* Un petit cercle blanc autour */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Si tu es sur un tout petit téléphone, on la réduit encore un peu */
+@media (max-width: 480px) {
+    .profile-thumb {
+        width: 45px;
+        height: 45px;
+    }
+    .pro-name {
+        font-size: 1.2rem !important;
+    }
+}
+
+
+
+
+
+
+/* Force le bouton à bien contenir son texte */
+.btn-primary {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white !important; /* Pour que "Me recruter" ne soit pas bleu sur fond bleu */
+    text-decoration: none !important;
+}
+
+/* Évite que le texte ne soit souligné au survol */
+.btn-primary:hover {
+    color: white !important;
+}
