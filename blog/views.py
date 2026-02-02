@@ -40,7 +40,7 @@ from django.contrib import messages
 # Importe ton modèle Profil si ce n'est pas déjà fait
 # from .models import Profil 
 
-def contact(request):
+"""def contact(request):
     profil = Profil.objects.first()
     
     if request.method == 'POST':
@@ -69,5 +69,14 @@ def contact(request):
             # En cas d'erreur, on affiche l'erreur technique dans la console pour toi
             print(f"Erreur SMTP : {e}")
             messages.error(request, "Mince, une erreur est survenue lors de l'envoi. Vérifie ta connexion ou tes réglages Gmail.")
+    
+    return render(request, 'contact.html', {'profil': profil})"""
+    
+def contact(request):
+    # On récupère les informations de ton profil pour les afficher sur la page
+    profil = Profil.objects.first()
+    
+    # PLUS BESOIN de gérer le POST ici car le formulaire 
+    # envoie les données directement à https://formspree.io/f/maqblnng
     
     return render(request, 'contact.html', {'profil': profil})

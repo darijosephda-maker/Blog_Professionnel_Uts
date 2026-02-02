@@ -28,50 +28,52 @@
         {% endfor %}
     {% endif %}
 
-                            <form method="POST">
-                                {% csrf_token %}
-                                
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-                                        <label class="form-label fw-semibold small text-uppercase">Nom Complet</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-person text-primary"></i></span>
-                                            <input type="text" name="nom" class="form-control border-start-0 ps-0" placeholder="Joseph DA" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4">
-                                        <label class="form-label fw-semibold small text-uppercase">Adresse Email</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-envelope-at text-primary"></i></span>
-                                            <input type="email" name="email" class="form-control border-start-0 ps-0" placeholder="contact@exemple.com" required>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label class="form-label fw-semibold small text-uppercase">Sujet</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-chat-left-dots text-primary"></i></span>
-                                        <select name="sujet" class="form-select border-start-0 ps-0" required>
-                                            <option value="" selected disabled>De quoi s'agit-il ?</option>
-                                            <option value="Projet Web">Nouveau projet Web</option>
-                                            <option value="Consultance">Consultance / Audit</option>
-                                            <option value="Collaboration">Demande de collaboration</option>
-                                            <option value="Maintenance">Test ou Maintenance</option>
-                                            <option value="Autre">Autre demande</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="mb-4">
-                                    <label class="form-label fw-semibold small text-uppercase">Votre Message</label>
-                                    <textarea name="message" class="form-control" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
-                                </div>
+    <form action="https://formspree.io/f/maqblnng" method="POST">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <label class="form-label fw-semibold small text-uppercase">Nom Complet</label>
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-person text-primary"></i></span>
+                <input type="text" name="nom" class="form-control border-start-0 ps-0" placeholder="Joseph DA" required>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <label class="form-label fw-semibold small text-uppercase">Adresse Email</label>
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-envelope-at text-primary"></i></span>
+                <input type="email" name="email" class="form-control border-start-0 ps-0" placeholder="contact@exemple.com" required>
+            </div>
+        </div>
+    </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 shadow py-3 transition-transform">
-                                    <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
-                                </button>
-                            </form>
+    <div class="mb-4">
+        <label class="form-label fw-semibold small text-uppercase">Sujet</label>
+        <div class="input-group">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-chat-left-dots text-primary"></i></span>
+            <select name="sujet" class="form-select border-start-0 ps-0" required>
+                <option value="" selected disabled>De quoi s'agit-il ?</option>
+                <option value="Projet Web">Nouveau projet Web</option>
+                <option value="Consultance">Consultance / Audit</option>
+                <option value="Collaboration">Demande de collaboration</option>
+                <option value="Maintenance">Test ou Maintenance</option>
+                <option value="Autre">Autre demande</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label fw-semibold small text-uppercase">Votre Message</label>
+        <textarea name="message" class="form-control" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 shadow py-3 transition-transform">
+        <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
+    </button>
+</form>
+
+
                         </div>
                     </div>
                 </div>
