@@ -1,6 +1,7 @@
 # Utilise une image Python stable
 FROM python:3.10-slim
 
+
 # Empêche Python de générer des fichiers .pyc et force l'affichage des logs
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -29,3 +30,4 @@ EXPOSE 8000
 
 # Lance l'application avec Gunicorn
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+
