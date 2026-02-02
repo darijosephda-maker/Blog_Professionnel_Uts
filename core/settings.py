@@ -151,12 +151,18 @@ DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'"""
 
 
 # Configuration Email
+orig_getaddrinfo = socket.getaddrinfo
+def getaddrinfo_ipv4(host, port, family=0, type=0, proto=0, flags=0):
+    return orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+socket.getaddrinfo = getaddrinfo_ipv4
+
+# Configuration SMTP stable
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587             # Utilise 587 pour TLS
-EMAIL_USE_TLS = True         # TLS doit être à True
-EMAIL_USE_SSL = False        # SSL doit être à False
-EMAIL_TIMEOUT = 10           # Sécurité pour éviter le "Worker Timeout"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_TIMEOUT = 10         # Sécurité pour éviter le "Worker Timeout"
 
 # Lecture des variables que tu as créées sur Render
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
