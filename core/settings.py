@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-=4ys_0##=%3&s4++t=^x)pm*oz@+zv1d9+!=4j1g1($%u4x)i4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['blog-professionnel-uts.onrender.com', 'localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['blog-professionnel-uts-1.onrender.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -144,15 +144,16 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 EMAIL_HOST_USER = 'darijosephda@gmail.com'
-EMAIL_HOST_PASSWORD = 'qihsqdaxdozrxkon'
+EMAIL_HOST_PASSWORD = 'lekojyoabhmwrcpl'
 DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'"""
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
+EMAIL_PORT = 587           # Port TLS
+EMAIL_USE_TLS = True       # Active TLS
+EMAIL_USE_SSL = False      # Désactive SSL (ne pas mettre les deux à True)
+EMAIL_TIMEOUT = 10
 
 # On dit à Django d'aller chercher les valeurs dans l'onglet Environment de Render
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
