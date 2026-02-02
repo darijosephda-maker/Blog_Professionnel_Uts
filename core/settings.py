@@ -138,14 +138,27 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # --- Configuration Email (SMTP Gmail) ---
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+"""EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 EMAIL_HOST_USER = 'darijosephda@gmail.com'
 EMAIL_HOST_PASSWORD = 'qihsqdaxdozrxkon'
-DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'"""
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+
+# On dit à Django d'aller chercher les valeurs dans l'onglet Environment de Render
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = f"Blog Pro <{EMAIL_HOST_USER}>"
+
 
 # --- Stockage Whitenoise pour Render ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
