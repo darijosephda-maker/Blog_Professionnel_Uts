@@ -156,19 +156,17 @@ def getaddrinfo_ipv4(host, port, family=0, type=0, proto=0, flags=0):
     return orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
 socket.getaddrinfo = getaddrinfo_ipv4
 
-# Configuration SMTP stable
+# --- Configuration Email ---
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_TIMEOUT = 10         # Sécurité pour éviter le "Worker Timeout"
+EMAIL_TIMEOUT = 15 # Augmenté à 15 pour plus de sécurité
 
-# Lecture des variables que tu as créées sur Render
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 
 # --- Stockage Whitenoise pour Render ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
