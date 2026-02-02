@@ -148,17 +148,20 @@ EMAIL_HOST_PASSWORD = 'lekojyoabhmwrcpl'
 DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'"""
 
 
+import os
+
+# Configuration Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587           # Port TLS
-EMAIL_USE_TLS = True       # Active TLS
-EMAIL_USE_SSL = False      # Désactive SSL (ne pas mettre les deux à True)
-EMAIL_TIMEOUT = 10
+EMAIL_PORT = 587             # Utilise 587 pour TLS
+EMAIL_USE_TLS = True         # TLS doit être à True
+EMAIL_USE_SSL = False        # SSL doit être à False
+EMAIL_TIMEOUT = 10           # Sécurité pour éviter le "Worker Timeout"
 
-# On dit à Django d'aller chercher les valeurs dans l'onglet Environment de Render
+# Lecture des variables que tu as créées sur Render
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = f"Blog Pro <{EMAIL_HOST_USER}>"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # --- Stockage Whitenoise pour Render ---
