@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import dj_database_url
 import os
 from pathlib import Path
+import socket
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -148,8 +150,6 @@ EMAIL_HOST_PASSWORD = 'lekojyoabhmwrcpl'
 DEFAULT_FROM_EMAIL = 'Blog Pro <darijosephda@gmail.com>'"""
 
 
-import os
-
 # Configuration Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -166,6 +166,9 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # --- Stockage Whitenoise pour Render ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Force le système à préférer l'IPv4 pour éviter l'erreur 101
+socket.setdefaulttimeout(15)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
