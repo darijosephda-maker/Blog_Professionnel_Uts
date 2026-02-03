@@ -9,8 +9,8 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
-                <div class="badge bg-primary bg-opacity-10 text-primary mb-3 px-4 py-3 rounded-pill fw-bold fs-5">
-                🚀 Disponible pour de nouveaux projets
+                <div class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">
+                    🚀 Disponible pour de nouveaux projets
                 </div>
                 <h1 class="display-3 fw-bold text-dark mb-3">Insights Tech & <span class="text-primary">Design</span></h1>
                 <p class="lead text-secondary mb-4" style="max-width: 600px;">
@@ -21,11 +21,16 @@
                     <a href="{% url 'contact' %}" class="btn btn-outline-dark btn-lg px-4 rounded-3">Me Contacter</a>
                 </div>
             </div>
-            <div class="col-lg-5 text-center">
-                <div class="position-relative">
-                    <div class="position-absolute top-50 start-50 translate-middle bg-primary opacity-10 rounded-circle" style="width: 400px; height: 400px;"></div>
-                    <img src="{% static 'img/PC.png' %}" alt="Joseph DA" class="img-fluid rounded-4 position-relative z-1 shadow-lg border">
-                </div>
+            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+    <div class="position-relative">
+        <div class="position-absolute top-50 start-50 translate-middle bg-primary opacity-10 rounded-circle d-none d-lg-block" 
+             style="width: 400px; height: 400px;"></div>
+        
+        <img src="{% static 'img/PC.png' %}" alt="Joseph DA" 
+             class="img-fluid rounded-4 position-relative shadow-lg border" 
+             style="z-index: 1;">
+    </div>
+</div>
             </div>
         </div>
     </div>
