@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-=4ys_0##=%3&s4++t=^x)pm*oz@+zv1d9+!=4j1g1($%u4x)i4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['blog-professionnel-uts-1.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['joseph-da-blog-pro.onrender.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
