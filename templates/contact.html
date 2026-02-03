@@ -30,7 +30,16 @@
 
 
 
+    {% if request.GET.success %}
+    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        Merci ! Votre message a été envoyé avec succès via Formspree.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
     <form action="https://formspree.io/f/maqblnng" method="POST">
+    <input type="hidden" name="_next" value="https://joseph-da-blog-pro.onrender.com/contact/?success=true">
     <div class="row">
         <div class="col-md-6 mb-4">
             <label class="form-label fw-semibold small text-uppercase">Nom Complet</label>
