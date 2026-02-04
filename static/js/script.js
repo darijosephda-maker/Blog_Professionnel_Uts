@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById("submit-btn");
 
     // On vérifie si le formulaire existe sur la page actuelle avant d'ajouter l'écouteur
+    // On vérifie si le formulaire existe sur la page actuelle avant d'ajouter l'écouteur
     if (form) {
         form.addEventListener("submit", async function(event) {
             event.preventDefault(); // Empêche la redirection vers Formspree
@@ -105,6 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     status.className = "alert alert-success alert-dismissible fade show shadow-sm mb-4";
                     status.style.display = "block";
                     form.reset(); // Vide les champs
+
+                    // DISPARITION AUTOMATIQUE après 5 secondes
+                    setTimeout(function() {
+                        // Utilisation des classes Bootstrap pour une sortie en douceur
+                        status.classList.remove('show');
+                        // On attend la fin de l'animation (150ms) pour masquer l'élément
+                        setTimeout(() => status.style.display = "none", 150);
+                    }, 5000);
+
                 } else {
                     // Erreur serveur
                     statusText.innerHTML = "Oups ! Un problème est survenu. Veuillez réessayer.";
@@ -124,3 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
