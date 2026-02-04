@@ -469,3 +469,318 @@ body.dark-mode #theme-toggle {
 .btn-primary:hover {
     color: white !important;
 }
+
+
+
+
+
+/* --- SECTION EXPERTISE & SERVICES --- */
+
+/* Effet de lévitation au survol */
+.card-expertise {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.card-expertise:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Bordure colorée subtile au survol */
+.card-expertise::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--bs-primary); /* Utilise la couleur primaire Bootstrap */
+    transition: width 0.4s ease;
+}
+
+.card-expertise:hover::after {
+    width: 100%;
+}
+
+/* Styling des listes (Checklist) */
+.card-expertise ul li {
+    padding-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.card-expertise ul li i {
+    flex-shrink: 0;
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+/* --- RESPONSIVITÉ --- */
+
+/* Ajustements pour tablettes et mobiles */
+@media (max-width: 768px) {
+    .card-expertise {
+        margin-bottom: 15px; /* Espace entre les cartes quand elles sont empilées */
+    }
+    
+    .display-6 {
+        font-size: 1.8rem; /* Titre légèrement plus petit sur mobile */
+    }
+}
+
+/* --- ANIMATION DES ICONES --- */
+.card-expertise:hover .icon-shape {
+    transform: scale(1.1) rotate(8deg);
+    filter: brightness(1.1);
+}
+
+
+
+
+
+
+/* --- Style des cartes techniques --- */
+.skill-card {
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol pour desktop */
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Gestion des fonds colorés des icônes (bg-opacity) */
+.bg-warning.bg-opacity-10 { background-color: rgba(255, 193, 7, 0.1) !important; }
+.bg-danger.bg-opacity-10 { background-color: rgba(220, 53, 69, 0.1) !important; }
+.bg-dark.bg-opacity-10 { background-color: rgba(33, 37, 41, 0.1) !important; }
+
+/* --- RESPONSIVITÉ POUR LE HTML FOURNI --- */
+@media (max-width: 767px) {
+    /* Ajoute de l'espace entre les cartes quand elles s'empilent sur mobile */
+    .skill-card {
+        margin-bottom: 1rem;
+    }
+    
+    /* Réduit un peu les marges pour gagner de la place sur petit écran */
+    .skill-card.p-4 {
+        padding: 1.5rem !important;
+    }
+}
+
+
+/* Effet de survol pour les boutons  AU NIVEUX DU PDF */
+
+.hover-lift {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(13, 110, 253, 0.2);
+}
+
+.bg-opacity-10 {
+    background-color: rgba(13, 110, 253, 0.05) !important;
+}
+
+/* Style spécifique pour l'icône PDF */
+.bi-file-earmark-pdf-fill {
+    color: #ffc107; /* Un petit rappel jaune pour le PDF sur le bouton bleu */
+}
+
+
+
+
+
+
+/* --- Style Final --- */
+.skill-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.08) !important;
+}
+
+.italic { font-style: italic; }
+
+/* --- Ajustements Responsives --- */
+@media (max-width: 768px) {
+    .skill-card {
+        margin-bottom: 1rem; /* Espacement vertical sur mobile */
+    }
+    
+    h3.fw-bold {
+        font-size: 1.4rem; /* Réduction du titre pour petit écran */
+    }
+}
+
+
+
+
+
+
+
+
+/* Animation au survol pour les services */
+/* --- CONFIGURATION DES CARTES DE SERVICES --- */
+.skill-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+/* Effet de lévitation au survol */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    background-color: #ffffff !important;
+}
+
+/* Animation de l'icône au survol */
+.skill-card:hover .icon-box-small {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Style des listes à puces */
+.skill-card ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.skill-card ul li i {
+    flex-shrink: 0; /* Empêche l'icône de s'écraser */
+}
+
+/* --- RESPONSIVITÉ (ADAPTATION ÉCRANS) --- */
+
+/* Pour les tablettes et petits ordinateurs (sous 992px) */
+@media (max-width: 991px) {
+    .display-5 {
+        font-size: 2.2rem; /* Titre un peu plus petit */
+    }
+}
+
+/* Pour les mobiles (sous 768px) */
+@media (max-width: 767px) {
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .display-5 {
+        font-size: 1.8rem; /* Titre adapté au mobile */
+    }
+
+    /* Espacement entre les cartes quand elles sont empilées verticalement */
+    .skill-card {
+        margin-bottom: 10px;
+        padding: 1.5rem !important; /* On réduit un peu le padding interne */
+    }
+
+    /* On s'assure que les icônes restent centrées si besoin ou s'adaptent */
+    .icon-box-small {
+        padding: 0.8rem !important;
+    }
+}
+
+/* --- PETITS PLUS ESTHÉTIQUES --- */
+.ls-wide {
+    letter-spacing: 2px;
+}
+
+.bg-opacity-10 {
+    /* Sécurité si Bootstrap n'est pas à jour */
+    background-color: rgba(var(--bs-primary-rgb), 0.1) !important;
+}
+
+
+
+
+
+
+/* --- STYLE DES COMPTEURS --- */
+.counter {
+    font-size: 2.5rem;
+    color: #212529;
+}
+
+/* Responsivité Mobile */
+@media (max-width: 767px) {
+    .counter {
+        font-size: 1.8rem; /* Chiffres plus petits sur mobile */
+    }
+    
+    .row.g-4.mt-5 .col-6 {
+        padding: 5px; /* Réduit l'espace pour que 2 colonnes tiennent bien */
+    }
+    
+    .p-4.bg-white.shadow-sm.rounded-4 {
+        padding: 1.2rem !important; /* Padding réduit sur mobile */
+    }
+
+    .text-uppercase {
+        font-size: 0.65rem; /* Texte plus petit pour éviter les retours à la ligne */
+    }
+}
+
+
+
+
+
+
+/* Nettoyage des bordures de l'Input Group */
+#contact-form .input-group {
+    border-radius: 0.5rem;
+    overflow: hidden; /* Empêche les débordements */
+}
+
+/* Éviter l'effet de double bordure entre l'icône et l'input */
+#contact-form .input-group .form-control, 
+#contact-form .input-group .form-select {
+    border-left: none !important;
+}
+
+#contact-form .input-group-text {
+    border-right: none !important;
+    font-size: 1.1rem;
+}
+
+/* Amélioration de la zone de message (Textarea) */
+#contact-form textarea.form-control {
+    border-radius: 0.5rem !important;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVITÉ MOBILE --- */
+@media (max-width: 768px) {
+    .display-5 {
+        font-size: 1.8rem; /* Titre plus adapté au mobile */
+    }
+    
+    /* Espacement entre la colonne formulaire et la colonne coordonnées */
+    .row.g-5 > div {
+        margin-bottom: 2rem;
+    }
+
+    /* Bouton plus large pour faciliter le clic au pouce */
+    #submit-btn {
+        padding: 1rem !important;
+        font-size: 1rem;
+    }
+}
+
+/* Animation fluide pour les icônes réseaux sociaux */
+.btn-outline-light:hover {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    transform: scale(1.1);
+}

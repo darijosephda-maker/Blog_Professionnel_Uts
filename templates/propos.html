@@ -128,4 +128,127 @@
         </div>
     </div>
 </section>
+
+
+
+
+<div class="row g-4 mt-5">
+    <div class="col-12 text-center mb-4">
+        <h3 class="fw-bold">Solutions Techniques & Infrastructure</h3>
+        <div class="mx-auto bg-primary" style="width: 50px; height: 3px;"></div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="skill-card p-4 border-0 shadow-sm bg-white rounded-4 h-100 transition-all">
+            <div class="d-flex align-items-center mb-3">
+                <div class="icon-box-small bg-warning bg-opacity-10 rounded-3 p-2 me-3">
+                    <i class="bi bi-cpu text-warning fs-4"></i>
+                </div>
+                <h5 class="fw-bold m-0">Systèmes d'Exploitation</h5>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0">
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Installation & Config Windows/Linux</li>
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Gestion du Dual-Boot & Partitionnement</li>
+                <li><i class="bi bi-check2 text-primary me-2"></i>Virtualisation de systèmes (VMware)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="skill-card p-4 border-0 shadow-sm bg-white rounded-4 h-100 transition-all">
+            <div class="d-flex align-items-center mb-3">
+                <div class="icon-box-small bg-danger bg-opacity-10 rounded-3 p-2 me-3">
+                    <i class="bi bi-window-stack text-danger fs-4"></i>
+                </div>
+                <h5 class="fw-bold m-0">Logiciels & Applications</h5>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0">
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Déploiement Suites Adobe & Office</li>
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Installation d'environnements de Dev</li>
+                <li><i class="bi bi-check2 text-primary me-2"></i>Optimisation des performances logicielles</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="skill-card p-4 border-0 shadow-sm bg-white rounded-4 h-100 transition-all">
+            <div class="d-flex align-items-center mb-3">
+                <div class="icon-box-small bg-dark bg-opacity-10 rounded-3 p-2 me-3">
+                    <i class="bi bi-tools text-dark fs-4"></i>
+                </div>
+                <h5 class="fw-bold m-0">Maintenance & Données</h5>
+            </div>
+            <ul class="list-unstyled small text-muted mb-0">
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Récupération de données perdues</li>
+                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Nettoyage & Désinfection Malware</li>
+                <li><i class="bi bi-check2 text-primary me-2"></i>Sauvegarde automatisée (Backup)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-5 pt-4">
+    <div class="col-12 text-center mb-4">
+        <h3 class="fw-bold">Ils me recommandent</h3>
+        <div class="mx-auto bg-primary" style="width: 50px; height: 3px;"></div>
+    </div>
+    
+    <div class="col-lg-6 col-md-12">
+        <div class="skill-card p-4 bg-white border-0 shadow-sm rounded-4 h-100">
+            <div class="d-flex mb-3">
+                <i class="bi bi-quote fs-1 text-primary opacity-25 me-2"></i>
+                <p class="text-muted italic mb-0 small">"Joseph est un expert polyvalent. Son intervention sur mes systèmes a été rapide et efficace. Un vrai professionnel à l'écoute."</p>
+            </div>
+            <div class="ps-5">
+                <h6 class="fw-bold mb-0">Client Satisfait</h6>
+                <small class="text-primary">Service Maintenance</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+        <div class="skill-card p-4 bg-white border-0 shadow-sm rounded-4 h-100">
+            <div class="d-flex mb-3">
+                <i class="bi bi-quote fs-1 text-primary opacity-25 me-2"></i>
+                <p class="text-muted italic mb-0 small">"Une double compétence rare entre design et technique pure. Le partitionnement de mon poste de travail est parfait."</p>
+            </div>
+            <div class="ps-5">
+                <h6 class="fw-bold mb-0">Collaborateur IT</h6>
+                <small class="text-primary">Support Technique</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+        <div class="row mt-5">
+    <div class="col-12 text-center">
+        <div class="p-5 bg-primary bg-opacity-10 rounded-4 border border-primary border-opacity-25 shadow-sm">
+            <h4 class="fw-bold mb-3">Besoin d'un profil complet ?</h4>
+            <p class="text-muted mb-4">Téléchargez mon curriculum vitae détaillé pour découvrir l'ensemble de mon parcours académique et professionnel.</p>
+            
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="{% static 'docs/moncv.pdf' %}" download class="btn btn-primary px-5 py-3 rounded-pill fw-bold shadow d-inline-flex align-items-center transition-transform hover-lift">
+                    <i class="bi bi-file-earmark-pdf-fill me-2 fs-4"></i>
+                    Télécharger mon CV (PDF)
+                </a>
+                
+                <a href="{% url 'contact' %}" class="btn btn-outline-primary px-5 py-3 rounded-pill fw-bold d-inline-flex align-items-center">
+                    <i class="bi bi-chat-dots-fill me-2 fs-4"></i>
+                    Discuter d'une opportunité
+                </a>
+            </div>
+            
+            <p class="small text-muted mt-3 italic">
+                <i class="bi bi-info-circle me-1"></i> Dernière mise à jour : Février 2026
+            </p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

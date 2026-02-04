@@ -139,6 +139,30 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+
+
+// Animation des compteurs
+const counters = document.querySelectorAll('.counter');
+const speed = 200; // Plus le chiffre est petit, plus c'est rapide
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 15);
+        } else {
+            counter.innerText = target + "+"; // Ajoute un "+" à la fin
+        }
+    };
+    updateCount();
+});
+
+
 });
 
 
