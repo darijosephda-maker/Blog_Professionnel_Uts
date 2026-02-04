@@ -101,13 +101,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    // Succès : On affiche le message personnalisé
+                    // 1. Succès : On affiche le message personnalisé
                     statusText.innerHTML = "Merci <strong>" + name + "</strong>, votre message a été envoyé avec succès !";
                     status.className = "alert alert-success alert-dismissible fade show shadow-sm mb-4";
                     status.style.display = "block";
                     form.reset(); // Vide les champs
 
-                    // DISPARITION AUTOMATIQUE après 5 secondes
+                    // 2. SCROLL : On ramène l'utilisateur vers le message (en haut)
+                    status.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+
+                    // 3. DISPARITION AUTOMATIQUE après 5 secondes
                     setTimeout(function() {
                         // Utilisation des classes Bootstrap pour une sortie en douceur
                         status.classList.remove('show');
