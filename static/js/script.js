@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     // --- 1. GESTION DE L'HEURE ET DE LA DATE ---
     function updateDateTime() {
@@ -73,5 +74,53 @@ document.addEventListener('DOMContentLoaded', function() {
         if (icon) {
             icon.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
         }
+    }
+
+    // --- 5. GESTION DU FORMULAIRE DE CONTACT (AJAX) ---
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    const statusText = document.getElementById("status-text");
+    const submitBtn = document.getElementById("submit-btn");
+
+    // On vérifie si le formulaire existe sur la page actuelle avant d'ajouter l'écouteur
+    if (form) {
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Empêche la redirection vers Formspree
+            
+            // On change l'état du bouton
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Envoi en cours...';
+
+            const data = new FormData(event.target);
+            const name = document.getElementById("full-name").value;
+
+            fetch(event.target.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    // Succès : On affiche le message personnalisé
+                    statusText.innerHTML = "Merci <strong>" + name + "</strong>, votre message a été envoyé avec succès !";
+                    status.className = "alert alert-success alert-dismissible fade show shadow-sm mb-4";
+                    status.style.display = "block";
+                    form.reset(); // Vide les champs
+                } else {
+                    // Erreur serveur
+                    statusText.innerHTML = "Oups ! Un problème est survenu. Veuillez réessayer.";
+                    status.className = "alert alert-danger alert-dismissible fade show shadow-sm mb-4";
+                    status.style.display = "block";
+                }
+            }).catch(error => {
+                // Erreur réseau
+                statusText.innerHTML = "Erreur de connexion. Vérifiez votre internet.";
+                status.className = "alert alert-warning alert-dismissible fade show shadow-sm mb-4";
+                status.style.display = "block";
+            }).finally(() => {
+                // On remet le bouton à l'état normal
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-send-fill me-2"></i> Envoyer ma demande';
+            });
+        });
     }
 });
