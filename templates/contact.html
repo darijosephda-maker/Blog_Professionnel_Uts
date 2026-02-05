@@ -93,8 +93,8 @@
 
 <div class="alert alert-info border-0 rounded-4 shadow-sm mb-4 d-flex align-items-center">
     <span class="position-relative d-inline-flex me-3">
-        <span class="bg-success rounded-circle" style="width: 12px; height: 12px;"></span>
-        <span class="bg-success rounded-circle position-absolute top-0 start-0 animate-ping" style="width: 12px; height: 12px; opacity: 0.75;"></span>
+        <span class="bg-success rounded-circle" style="width: 16px; height: 16px;"></span>
+        <span class="bg-success rounded-circle position-absolute top-0 start-0 animate-ping" style="width: 16px; height: 16px; opacity: 0.75;"></span>
     </span>
     <span class="small fw-bold">Disponible pour de nouveaux projets</span>
 </div>
@@ -102,10 +102,16 @@
 <style>
 /* Animation de pulsation pour le point vert */
 .animate-ping {
-    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    /* On peut ralentir un peu à 2s pour que ce soit moins agressif si c'est plus gros */
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
 @keyframes ping {
-    75%, 100% { transform: scale(2.5); opacity: 0; }
+    /* On augmente le scale à 3.5 pour que l'onde aille plus loin */
+    75%, 100% { 
+        transform: scale(3.5); 
+        opacity: 0; 
+    }
 }
 </style>
 
