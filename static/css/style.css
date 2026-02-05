@@ -861,22 +861,39 @@ body.dark-mode #theme-toggle {
 
 
 
+
+/*POUR LES CHIFFRE AU NIVEAU DE SERVICES ET FAQ*/
+
+
 .faq-card {
-    background: #ffffff;
+    /* Utilise la couleur de fond du thème (clair ou sombre) */
+    background-color: var(--bs-body-bg); 
     border-radius: 12px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
+    /* Bordure subtile qui s'adapte aussi */
+    border: 1px solid rgba(13, 110, 253, 0.1); 
+    height: 100%;
+}
+
+/* Texte à l'intérieur pour garantir la lisibilité */
+.faq-card h6 {
+    color: var(--bs-primary) !important;
+}
+
+.faq-card p {
+    color: var(--bs-body-color) !important; /* Texte gris en clair, blanc en sombre */
+}
+
+/* Ajustement spécifique pour le mode sombre de Bootstrap */
+[data-bs-theme="dark"] .faq-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Fond légèrement gris/bleu très foncé */
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .faq-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-@media (max-width: 768px) {
-    .faq-card {
-        margin-bottom: 10px; /* Espacement propre sur mobile */
-    }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--bs-primary);
 }
 
 
