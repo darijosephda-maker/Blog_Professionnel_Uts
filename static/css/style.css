@@ -619,6 +619,57 @@ body.dark-mode #theme-toggle {
     h3.fw-bold {
         font-size: 1.4rem; /* Réduction du titre pour petit écran */
     }
+}/* Délimitation du bloc formulaire */
+.contact-container {
+    background: var(--bs-body-bg); /* S'adapte au mode clair/sombre */
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Style des groupes d'input */
+.custom-input-group {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] .custom-input-group {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-input-group .input-group-text {
+    background: transparent;
+    border: none;
+    padding-left: 1.2rem;
+}
+
+.custom-input-group .form-control, 
+.custom-input-group .form-select {
+    border: none !important;
+    background: transparent !important;
+    padding: 12px;
+    box-shadow: none !important;
+}
+
+/* Effet au focus sur tout le bloc */
+.custom-input-group:focus-within {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+}
+
+/* Style spécifique au textarea */
+.custom-textarea {
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 15px !important;
+}
+
+[data-bs-theme="dark"] .custom-textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
 
@@ -705,38 +756,41 @@ body.dark-mode #theme-toggle {
 
 
 
-/* --- STYLE DES COMPTEURS (CORRIGÉ POUR MODE SOMBRE) --- */
+/* --- STYLE DES COMPTEURS UNIVERSEL --- */
 .counter {
     font-size: 2.5rem;
-    color: #ffffff !important; /* On remplace le gris par du blanc éclatant */
     font-weight: bold;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Ajoute du relief aux chiffres */
+    /* Couleur par défaut (Sombre pour le mode clair) */
+    color: #212529 !important; 
+    transition: all 0.3s ease;
 }
 
-/* On s'assure que le texte sous les chiffres est aussi visible */
+/* Texte sous les chiffres (Mode Clair) */
 .counter + p, .text-uppercase {
-    color: rgba(255, 255, 255, 0.8) !important; 
+    color: #6c757d !important;
+    font-weight: 600;
+}
+
+/* --- AJUSTEMENT AUTOMATIQUE POUR FOND SOMBRE --- */
+/* Si la carte ou le body est en mode sombre */
+[data-bs-theme="dark"] .counter, 
+.bg-dark .counter, 
+.card-dark .counter {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+[data-bs-theme="dark"] .text-uppercase,
+.bg-dark .text-uppercase {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* Responsivité Mobile */
 @media (max-width: 767px) {
-    .counter {
-        font-size: 1.8rem; 
-    }
-    
-    .row.g-4.mt-5 .col-6 {
-        padding: 5px; 
-    }
-    
-    /* On ajuste aussi le fond des cartes pour qu'elles ne soient pas trop claires */
-    .bg-white.shadow-sm.rounded-4 {
-        background-color: #1a2436 !important; /* Fond sombre pro */
-        padding: 1.2rem !important; 
-    }
-
-    .text-uppercase {
-        font-size: 0.65rem; 
-    }
+    .counter { font-size: 1.8rem; }
+    .row.g-4.mt-5 .col-6 { padding: 5px; }
+    .p-4.rounded-4 { padding: 1.2rem !important; }
+    .text-uppercase { font-size: 0.65rem; }
 }
 
 
@@ -839,4 +893,60 @@ body.dark-mode #theme-toggle {
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     border: 1px solid rgba(13, 110, 253, 0.1);
     transform: translateY(-5px);
+}
+
+
+
+
+/* Délimitation du bloc formulaire */
+.contact-container {
+    background: var(--bs-body-bg); /* S'adapte au mode clair/sombre */
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Style des groupes d'input */
+.custom-input-group {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] .custom-input-group {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.custom-input-group .input-group-text {
+    background: transparent;
+    border: none;
+    padding-left: 1.2rem;
+}
+
+.custom-input-group .form-control, 
+.custom-input-group .form-select {
+    border: none !important;
+    background: transparent !important;
+    padding: 12px;
+    box-shadow: none !important;
+}
+
+/* Effet au focus sur tout le bloc */
+.custom-input-group:focus-within {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+}
+
+/* Style spécifique au textarea */
+.custom-textarea {
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 15px !important;
+}
+
+[data-bs-theme="dark"] .custom-textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
 }

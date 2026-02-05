@@ -38,50 +38,52 @@
 
 
 
-<form id="contact-form" action="https://formspree.io/f/maqblnng" method="POST">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <label class="form-label fw-semibold small text-uppercase">Nom Complet</label>
-            <div class="input-group">
-                <span class="input-group-text bg-white border-end-0"><i class="bi bi-person text-primary"></i></span>
-                <input type="text" name="nom" id="full-name" class="form-control border-start-0 ps-0" placeholder="Joseph DA" required>
+<div class="contact-container shadow-lg rounded-4 p-4 p-lg-5">
+    <form id="contact-form" action="https://formspree.io/f/maqblnng" method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Nom Complet</label>
+            <div class="input-group custom-input-group">
+                <span class="input-group-text"><i class="bi bi-person text-primary"></i></span>
+                <input type="text" name="nom" id="full-name" class="form-control" placeholder="Joseph DA" required>
             </div>
         </div>
-        <div class="col-md-6 mb-4">
-            <label class="form-label fw-semibold small text-uppercase">Adresse Email</label>
-            <div class="input-group">
-                <span class="input-group-text bg-white border-end-0"><i class="bi bi-envelope-at text-primary"></i></span>
-                <input type="email" name="email" class="form-control border-start-0 ps-0" placeholder="contact@exemple.com" required>
+
+        <div class="mb-4">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Adresse Email</label>
+            <div class="input-group custom-input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-at text-primary"></i></span>
+                <input type="email" name="email" class="form-control" placeholder="contact@exemple.com" required>
             </div>
         </div>
-    </div>
 
-    <div class="mb-4">
-        <label class="form-label fw-semibold small text-uppercase">Sujet</label>
-        <div class="input-group">
-            <span class="input-group-text bg-white border-end-0"><i class="bi bi-chat-left-dots text-primary"></i></span>
-            <select name="sujet" class="form-select border-start-0 ps-0" required>
-                <option value="" selected disabled>De quoi s'agit-il ?</option>
-                <option value="Projet Web">Nouveau projet Web</option>
-                <option value="Consultance">Consultance / Audit</option>
-                <option value="Collaboration">Demande de collaboration</option>
-                <option value="Maintenance">Test ou Maintenance</option>
-                <option value="Installations">Demande d'installation</option>
-                <option value="Autre">Autre demande</option>
-            </select>
+        <div class="mb-4">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Sujet</label>
+            <div class="input-group custom-input-group">
+                <span class="input-group-text"><i class="bi bi-chat-left-dots text-primary"></i></span>
+                <select name="sujet" class="form-select" required>
+                    <option value="" selected disabled>De quoi s'agit-il ?</option>
+                    <option value="Projet Web">Nouveau projet Web</option>
+                    <option value="Consultance">Consultance / Audit</option>
+                    <option value="Collaboration">Demande de collaboration</option>
+                    <option value="Maintenance">Test ou Maintenance</option>
+                    <option value="Installations">Demande d'installation</option>
+                    <option value="Autre">Autre demande</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <div class="mb-4">
-        <label class="form-label fw-semibold small text-uppercase">Votre Message</label>
-        <textarea name="message" class="form-control" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
-    </div>
+        <div class="mb-4">
+            <label class="form-label fw-semibold small text-uppercase text-muted">Votre Message</label>
+            <textarea name="message" class="form-control custom-textarea" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
+        </div>
 
-    <button type="submit" id="submit-btn" class="btn btn-primary btn-lg w-100 rounded-3 shadow py-3 transition-transform">
-        <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
-    </button>
-</form>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg w-100 rounded-pill shadow-sm py-3 transition-transform">
+            <i class="bi bi-send-fill me-2"></i> Envoyer ma demande
+        </button>
+    </form>
+</div>
 
 
 
@@ -165,9 +167,9 @@
                 <h5 class="mb-2 fw-bold small">Suivez mon actualité</h5>
                 <p class="x-small opacity-75 mb-3" style="font-size: 0.75rem;">Retrouvez mes projets sur les réseaux sociaux.</p>
                 <div class="d-flex gap-3">
-                    <a href="https://www.linkedin.com/..." class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://github.com/..." class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-github"></i></a>
-                    <a href="https://x.com/..." class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://www.linkedin.com/in/dari-joseph-da-1330022a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/darijosephda-maker" class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-github"></i></a>
+                    <a href="https://x.com/DADariJose17021" class="btn btn-outline-light btn-sm rounded-circle shadow-sm"><i class="bi bi-twitter-x"></i></a>
                 </div>
             </div>
         </div>
@@ -204,46 +206,22 @@
     <div class="col-md-4 mb-4">
         <div class="p-3 h-100 faq-card">
             <h6 class="fw-bold text-primary"><i class="bi bi-credit-card-2-front me-2"></i>Modes de paiement ?</h6>
-            <p class="small text-muted mb-0">Virement, Orange Money et Moov Money acceptés pour plus de simplicité.</p>
+            <p class="small text-muted mb-0">J'accepte les paiements par virement bancaire, Orange Money et Moov Money pour plus de simplicité.</p>
         </div>
     </div>
     <div class="col-md-4 mb-4">
         <div class="p-3 h-100 faq-card">
             <h6 class="fw-bold text-primary"><i class="bi bi-file-earmark-pdf me-2"></i>Devis & Étude ?</h6>
-            <p class="small text-muted mb-0">Analyse gratuite et devis détaillé avant tout commencement de projet.</p>
+            <p class="small text-muted mb-0">Toute demande fait l'objet d'une analyse gratuite et d'un devis détaillé avant tout commencement.</p>
         </div>
     </div>
     <div class="col-md-4 mb-4">
         <div class="p-3 h-100 faq-card">
             <h6 class="fw-bold text-primary"><i class="bi bi-headset me-2"></i>Accompagnement ?</h6>
-            <p class="small text-muted mb-0">Un suivi technique est inclus après chaque intervention pour vos outils.</p>
+            <p class="small text-muted mb-0">Un suivi technique est inclus après chaque intervention pour garantir le bon fonctionnement de vos outils.</p>
         </div>
     </div>
 </div>
-
-
-
-
-      <div class="col-md-4 mb-3">
-            <div class="p-3 h-100">
-                <h6 class="fw-bold text-primary"><i class="bi bi-credit-card-2-front me-2"></i>Modes de paiement ?</h6>
-                <p class="small text-muted mb-0">J'accepte les paiements par virement bancaire, Orange Money et Moov Money pour plus de simplicité.</p>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="p-3 h-100">
-                <h6 class="fw-bold text-primary"><i class="bi bi-file-earmark-pdf me-2"></i>Devis & Étude ?</h6>
-                <p class="small text-muted mb-0">Toute demande fait l'objet d'une analyse gratuite et d'un devis détaillé avant tout commencement.</p>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="p-3 h-100">
-                <h6 class="fw-bold text-primary"><i class="bi bi-headset me-2"></i>Accompagnement ?</h6>
-                <p class="small text-muted mb-0">Un suivi technique est inclus après chaque intervention pour garantir le bon fonctionnement de vos outils.</p>
-            </div>
-        </div>
 
 
 
