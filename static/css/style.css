@@ -865,37 +865,31 @@ body.dark-mode #theme-toggle {
 /*POUR LES CHIFFRE AU NIVEAU DE SERVICES ET FAQ*/
 
 
-.faq-card {
-    /* Utilise la couleur de fond du thème (clair ou sombre) */
-    background-color: var(--bs-body-bg); 
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    /* Bordure subtile qui s'adapte aussi */
-    border: 1px solid rgba(13, 110, 253, 0.1); 
-    height: 100%;
+/* Style de base des cartes de stats */
+.stats-card {
+    background-color: var(--bs-body-bg); /* S'adapte au mode clair/sombre */
+    transition: transform 0.3s ease;
 }
 
-/* Texte à l'intérieur pour garantir la lisibilité */
-.faq-card h6 {
-    color: var(--bs-primary) !important;
+/* Couleur des chiffres (Adaptative) */
+.counter {
+    color: var(--bs-emphasis-color) !important; /* Devient blanc en sombre, noir en clair */
 }
 
-.faq-card p {
-    color: var(--bs-body-color) !important; /* Texte gris en clair, blanc en sombre */
+/* Couleur des labels (Adaptative) */
+.stats-label {
+    color: var(--bs-secondary-color) !important;
 }
 
-/* Ajustement spécifique pour le mode sombre de Bootstrap */
-[data-bs-theme="dark"] .faq-card {
-    background-color: rgba(255, 255, 255, 0.05); /* Fond légèrement gris/bleu très foncé */
-    border-color: rgba(255, 255, 255, 0.1);
+/* --- Ajustement spécifique pour le mode sombre de ton site --- */
+[data-bs-theme="dark"] .stats-card {
+    background-color: #1a2234 !important; /* Un bleu-nuit pro pour le fond sombre */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.faq-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border-color: var(--bs-primary);
+[data-bs-theme="dark"] .counter {
+    color: #ffffff !important; /* Blanc pur forcé pour la visibilité maximale */
 }
-
 
 
 
