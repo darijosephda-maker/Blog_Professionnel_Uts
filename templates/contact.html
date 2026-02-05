@@ -67,7 +67,7 @@
                 <option value="Consultance">Consultance / Audit</option>
                 <option value="Collaboration">Demande de collaboration</option>
                 <option value="Maintenance">Test ou Maintenance</option>
-                <option value="Installations">Demande d'installations</option>
+                <option value="Installations">Demande d'installation</option>
                 <option value="Autre">Autre demande</option>
             </select>
         </div>
@@ -99,7 +99,15 @@
     <span class="small fw-bold">Disponible pour de nouveaux projets</span>
 </div>
 
-
+<style>
+/* Animation de pulsation pour le point vert */
+.animate-ping {
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+    75%, 100% { transform: scale(2.5); opacity: 0; }
+}
+</style>
 
 
 
@@ -157,26 +165,7 @@
 
 
 
-<div class="row mt-5">
-    <div class="col-12">
-        <hr class="my-5 opacity-25">
-        <h4 class="fw-bold text-center mb-4">Questions Fréquentes</h4>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <h6 class="fw-bold"><i class="bi bi-clock me-2 text-primary"></i>Délais de réponse ?</h6>
-                <p class="small text-muted">Je réponds généralement en moins de 24h, du lundi au vendredi.</p>
-            </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold"><i class="bi bi-briefcase me-2 text-primary"></i>Projets urgents ?</h6>
-                <p class="small text-muted">Pour les urgences (maintenance système), précisez "URGENT" dans le sujet.</p>
-            </div>
-            <div class="col-md-4">
-                <h6 class="fw-bold"><i class="bi bi-file-earmark-pdf me-2 text-primary"></i>Devis gratuit ?</h6>
-                <p class="small text-muted">Oui, toute étude de projet fait l'objet d'un devis détaillé sans frais.</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
