@@ -10,11 +10,11 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="welcome-msg mb-2 text-center text-lg-start">
-                     {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                       <h3 class="display-6 fs-4 fs-md-2">Ravi de vous revoir, {{ user.username }} !</h3>
-                        {% else %}
+                    {% else %}
                           <h3 class="display-6 fs-4 fs-md-2">Bienvenue, visiteur !</h3>
-                        {% endif %}
+                    {% endif %}
                     </div>
                 <div class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">
                     🚀 Disponible pour de nouveaux projets
