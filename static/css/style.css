@@ -961,3 +961,39 @@ body.dark-mode #theme-toggle {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     background: rgba(255, 255, 255, 0.05) !important;
 }
+
+
+
+
+
+/* Style pour le message de bienvenue */
+.welcome-msg h3 {
+    font-family: 'Poppins', sans-serif; /* Ou ta police actuelle */
+    background: linear-gradient(45deg, #0d6efd, #00b4db); /* Dégradé bleu pro */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+    animation: fadeInDown 0.8s ease-out; /* Animation d'apparition */
+}
+
+/* Animation d'entrée */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustement Responsive pour mobile */
+@media (max-width: 768px) {
+    .welcome-msg h3 {
+        font-size: 1.25rem !important; /* Texte plus petit sur smartphone */
+        text-align: center; /* Centré pour une meilleure ergonomie mobile */
+    }
+}

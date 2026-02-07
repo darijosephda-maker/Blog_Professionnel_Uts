@@ -9,26 +9,35 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
+                <div class="welcome-msg mb-2 text-center text-lg-start">
+                     {% if user.is_authenticated %}
+                      <h3 class="display-6 fs-4 fs-md-2">Ravi de vous revoir, {{ user.username }} !</h3>
+                        {% else %}
+                          <h3 class="display-6 fs-4 fs-md-2">Bienvenue, visiteur !</h3>
+                        {% endif %}
+                    </div>
                 <div class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">
                     🚀 Disponible pour de nouveaux projets
                 </div>
+                
                 <h1 class="display-3 fw-bold text-dark mb-3">Insights Tech & <span class="text-primary">Design</span></h1>
                 <p class="lead text-secondary mb-4" style="max-width: 600px;">
                     Étudiant à l'Université Thomas Sankara, je fusionne le <strong>code</strong> et le <strong>design</strong> pour créer des expériences numériques uniques.
                 </p>
+                
                 <div class="d-flex flex-wrap gap-3 mb-4">
                     <a href="#blog" class="btn btn-primary btn-lg px-4 rounded-3 shadow">Explorer le Blog</a>
                     <a href="{% url 'contact' %}" class="btn btn-outline-dark btn-lg px-4 rounded-3">Me Contacter</a>
                 </div>
             </div>
-          <div class="col-lg-5 text-center mt-4 mt-lg-0">
-            <div class="position-relative">
-            <img src="{% static 'img/PC.png' %}" alt="Joseph DA" 
-             class="img-fluid rounded-4 shadow-lg border" 
-             style="max-height: 400px; object-fit: contain;">
+            
+            <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                <div class="position-relative">
+                    <img src="{% static 'img/PC.png' %}" alt="Joseph DA" 
+                         class="img-fluid rounded-4 shadow-lg border" 
+                         style="max-height: 400px; object-fit: contain;">
+                </div>
             </div>
-            </div>
-         </div>
         </div>
     </div>
 </section>
