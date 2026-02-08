@@ -8,4 +8,6 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     # Le lien vers la vue corrigée
     path('article/<slug:slug>/', views.detail_article, name='detail_article'),
+    
+    path('search/', views.blog_search, name='blog_search'),
 ]

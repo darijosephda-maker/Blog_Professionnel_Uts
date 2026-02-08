@@ -997,3 +997,80 @@ body.dark-mode #theme-toggle {
         text-align: center; /* Centré pour une meilleure ergonomie mobile */
     }
 }
+
+
+
+
+
+/* Barre de recherche Pro & Responsive */
+.search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.search-container-pro {
+    background: #ffffff;
+    border: 2px solid #f0f0f0;
+    border-radius: 50px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Effet focus quand on clique dedans */
+.search-container-pro:focus-within {
+    border-color: #0d6efd;
+    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+    transform: translateY(-2px);
+}
+
+.search-input-pro {
+    border: none !important;
+    background: transparent !important;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #333;
+    flex: 1;
+}
+
+.search-input-pro::placeholder {
+    color: #a0a0a0;
+    font-weight: 400;
+}
+
+.search-btn-pro {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 25px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.search-btn-pro:hover {
+    background: #0052cc;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Responsivité Mobile */
+@media (max-width: 576px) {
+    .search-btn-pro span {
+        display: none; /* Cache le texte "Rechercher" sur mobile pour ne garder que l'icône */
+    }
+    .search-btn-pro {
+        padding: 12px;
+        border-radius: 50%; /* Devient un cercle parfait sur mobile */
+    }
+    .search-input-pro {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+}
