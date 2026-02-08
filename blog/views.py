@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from .models import Article, Profil
+from django.shortcuts import render
+from django.db.models import Q
 
 # 1. Page d'accueil (Articles)
 def home(request):
@@ -80,3 +82,20 @@ def contact(request):
     # envoie les données directement à https://formspree.io/f/maqblnng
     
     return render(request, 'contact.html', {'profil': profil})
+
+
+
+
+def blog_search(request):
+    query = request.GET.get('q')
+    results = Article.objects.none() # Par défaut, aucun résultat
+    
+    if query:
+        results = Article.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        ).distinct()
+    
+    return render(request, 'blog/search_results.html', {
+        'query': query,
+        'results': results
+    })
