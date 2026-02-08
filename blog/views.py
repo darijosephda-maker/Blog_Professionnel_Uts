@@ -95,7 +95,7 @@ def blog_search(request):
             Q(title__icontains=query) | Q(content__icontains=query)
         ).distinct()
     
-    return render(request, 'blog/search_results.html', {
+    return render(request, '/search_results.html', {
         'query': query,
         'results': results
     })
