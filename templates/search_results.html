@@ -29,4 +29,26 @@
         </div>
     </div>
 </section>
+
+
+<script>
+document.addEventListener('keyup', e => {
+    if (e.target.matches('#search-input')) { // Assure-toi que ton input a cet ID
+        const term = e.target.value.toLowerCase();
+        const articles = document.querySelectorAll('.col-md-6'); // Cible tes colonnes d'articles
+
+        articles.forEach(article => {
+            const titre = article.querySelector('h4').textContent.toLowerCase();
+            const contenu = article.querySelector('p').textContent.toLowerCase();
+            
+            if (titre.includes(term) || contenu.includes(term)) {
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
+
 {% endblock %}
