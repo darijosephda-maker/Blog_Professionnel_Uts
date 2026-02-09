@@ -86,15 +86,16 @@ def contact(request):
 
 
 def blog_search(request):
-    query = request.GET.get('q', '').strip() # .strip() retire les espaces inutiles
-    results = Article.objects.none() 
+    query = request.GET.get('q', '').strip()
+    results = Article.objects.none()
     
     if query:
+        # On utilise 'titre' et 'contenu' (noms de ton modèle)
         results = Article.objects.filter(
-            Q(title__icontains=query) | Q(content__icontains=query)
+            Q(titre__icontains=query) | Q(contenu__icontains=query)
         ).distinct()
     
-    # Correction ici : on enlève le "/" devant search_results.html
+    # Rappel : Pas de "/" au début de 'search_results.html'
     return render(request, 'search_results.html', {
         'query': query,
         'results': results

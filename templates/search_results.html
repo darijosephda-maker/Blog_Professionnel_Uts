@@ -15,7 +15,7 @@
                         <div class="card-body p-4">
                             <h4 class="fw-bold">{{ post.title }}</h4>
                             <p class="text-muted small">{{ post.content|truncatewords:20 }}</p>
-                            <a href="{% url 'blog_detail' post.id %}" class="btn btn-link text-primary p-0 fw-bold">Lire la suite →</a>
+                           <a href="{% url 'detail_article' post.slug %}" class="btn btn-link text-primary p-0 fw-bold">Lire la suite →</a>
                         </div>
                     </div>
                 </div>
