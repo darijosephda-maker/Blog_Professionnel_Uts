@@ -1,22 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // On cherche le paragraphe de description
     const target = document.getElementById('target-description');
 
     if (target) {
+        // Bloc de recherche injecté
         const searchHTML = `
-            <div class="row justify-content-center mb-5 animate__animated animate__fadeIn">
+            <div class="row justify-content-center mb-5">
                 <div class="col-md-8 col-lg-6">
-                    <form action="/search/" method="get" class="d-flex shadow-sm rounded-pill bg-white border p-1">
-                        <input type="text" name="q" class="form-control border-0 rounded-pill ps-4" 
-                               placeholder="Rechercher une expertise... (ex: Django, Design)" required>
-                        <button class="btn btn-primary rounded-pill px-4" type="submit">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </form>
+                    <div class="d-flex shadow-sm rounded-pill bg-white border p-1">
+                        <input type="text" id="local-search" class="form-control border-0 rounded-pill ps-4" 
+                               placeholder="Tapez 'Infographie' pour tester...">
+                    </div>
                 </div>
             </div>
         `;
-        // On injecte le bloc juste après le paragraphe
         target.insertAdjacentHTML('afterend', searchHTML);
+
+        const input = document.getElementById('local-search');
+        
+        input.addEventListener('input', function() {
+            const term = this.value.toLowerCase();
+            const items = document.querySelectorAll('.service-item'); // Il cible tes blocs
+
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                // Si le texte est trouvé, on garde 'block', sinon on cache avec 'none'
+                item.style.display = text.includes(term) ? "block" : "none";
+            });
+        });
     }
 });
