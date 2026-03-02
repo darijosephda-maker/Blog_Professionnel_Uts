@@ -1,8 +1,6 @@
-# Remplace Django==6.0.1 par :
 Django==5.1.5
-# Garde tes autres dépendances (gunicorn, whitenoise, etc.)
 gunicorn
 whitenoise
 psycopg2-binary
 dj-database-url
-pillow
+Pillow

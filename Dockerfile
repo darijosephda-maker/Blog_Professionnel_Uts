@@ -23,8 +23,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Commande pour préparer les fichiers statiques (ton JS et CSS !)
-RUN python manage.py collectstatic --noinput
-
+RUN DATABASE_URL=sqlite:///tmp/fake.db python manage.py collectstatic --noinput
 # Expose le port utilisé par Render
 EXPOSE 8000
 
