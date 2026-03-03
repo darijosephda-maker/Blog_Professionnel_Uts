@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog | Joseph DA - Expert IT & Designer{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="container">
+        <div class="border-start border-primary border-4 ps-4 mb-5">
+            <h2 class="fw-bold mb-0">Toutes les Publications</h2>
+            <p class="text-muted mb-0">Partage de connaissances et tutoriels.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for article in articles %}
+            <div class="col-md-6 col-lg-4">
+                <article class="card h-100 border-0 shadow-sm overflow-hidden hover-lift">
+                    <div class="position-relative">
+                        {% if article.image %}
+                            <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.titre }}" style="height: 220px; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-dark d-flex align-items-center justify-content-center text-white" style="height: 220px;">
+                                <i class="bi bi-code-square display-4 opacity-25"></i>
+                            </div>
+                        {% endif %}
+                        <div class="position-absolute top-0 end-0 p-3">
+                            <span class="badge bg-primary px-3 py-2 shadow-sm">Nouveau</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex gap-2 mb-3">
+                            <small class="text-muted"><i class="bi bi-calendar3 me-1"></i> {{ article.date_publication|date:"d M Y" }}</small>
+                            <small class="text-primary fw-bold"><i class="bi bi-clock me-1"></i> 5 min</small>
+                        </div>
+                        <h4 class="card-title fw-bold h5 mb-3">
+                            <a href="{% url 'detail_article' article.slug %}" class="text-decoration-none text-dark stretched-link">{{ article.titre }}</a>
+                        </h4>
+                        <p class="card-text text-muted small">{{ article.resume|default:article.contenu|truncatewords:12 }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 px-4 pb-4 mt-auto text-end">
+                        <i class="bi bi-arrow-right-circle fs-4 text-primary"></i>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-journal-x display-1 text-muted"></i>
+                <p class="text-muted mt-3">Aucun article disponible pour le moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -15,6 +15,16 @@ def home(request):
         'profil': profil
     })
 
+
+def blog_list(request):
+    articles = Article.objects.all().order_by('-date_publication')
+    profil = Profil.objects.first()
+    return render(request, 'blog/liste.html', {
+        'articles': articles,
+        'profil': profil
+    })
+
+
 # 2. Page de détail d'un article
 def detail_article(request, slug):
     article = get_object_or_404(Article, slug=slug)
